@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quantity Inc/Dec</title>
+    <style>
+        body{
+            background-color: #f7f6f6;
+        }
+        .product-card{
+            background-color: white;
+            width: 300px;
+            border-radius: 20px;
+            
+            box-shadow: 0 0 10px rgba(0 , 0, 0, 0.2);
+            display: block;
+            margin: 30px auto;
+            padding: 3px;
+            
+        }
+        .shoes-img{
+            height: 170px;
+            display: block;
+            margin: 5px auto;
+            border-radius: 40px;
+            padding: 10px 20px;
+            
+            
+            
+            }
+            .product-title{
+                font-size: 25px;
+            }
+            .card-body{
+                margin-left: 15px;
+            }
+            .product-description{
+                font-size: 18px;
+            }
+            .product-price{
+                font-weight: bold;
+                font-size: 20px;
+            }
+            .btn-buy-now{
+                background-color: rgb(0, 0, 0);
+                border: none;
+                color: white;
+                border-radius: 20px;
+                padding: 5px 20px;
+                display: block;
+                margin: 10px auto;
+            }
+            .btn-quantity{
+                height: 25px;
+            }
+            .Quantity-btn-container{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+            .Quantity-text{
+                font-size: 25px;
+                margin: auto 10px;
+                cursor: pointer;
+                
+            }
+    </style>
+</head>
+<body>
+    <div class="product-card">
+        <img src="shoes1.jpg" class="shoes-img">
+        <div class="card-body">
+        <h1 class="product-title"> Nike Air Jordan  </h1>
+        <p  class="product-description">
+            <b>Well looking and Premimum , comfertable shoes .</b>
+        </p>
+        <p class="product-price"> ₹ 10999 /-</p>
+
+        <p id="show-quantity">1 * 10999</p>
+        <p id="show-total">Total = 10999</p>
+
+        <div class="Quantity-btn-container">
+            <img src="minus.png" class="btn-quantity" onclick="dec()" />
+            <span class="Quantity-text" id="Quantity-text">1</span>
+            <img src="plus.png" class="btn-quantity" onclick="inc()" />
+        </div>
+
+        <button type="button" class="btn-buy-now"> Buy Now</button>
+    </div>
+
+
+    </div>
+    <script>
+       function inc(){
+            const quantityText  = document.getElementById('Quantity-text');
+            const showquantity  = document.getElementById('show-quantity');
+
+
+            const showtotal = document.getElementById('show-total');
+            let quantity = parseInt(quantityText.innerText);
+            if(quantity<10){
+
+           
+
+            quantityText.innerText = ++quantity; 
+            }
+            else{
+                alert("you can't add more then 10 item")
+            }
+            showquantity.innerText = `${quantity} * 10999`;
+            showtotal.innerText = `Total = ${quantity * 10999}`;
+        }
+        function dec(){
+            const quantityText = document.getElementById('Quantity-text');
+            const showquantity  = document.getElementById('show-quantity');
+            const showtotal  = document.getElementById('show-total');
+
+
+            let quantity = parseInt(quantityText.innerText);
+            if(quantity >1 ){
+
+            
+
+            quantityText.innerText = --quantity; 
+            }
+            else{
+                alert("you can't add less then 1 item");
+            }
+            showquantity.innerText = `${quantity} * 10999`;
+            showtotal.innerText = `Total = ${quantity * 10999}`;
+        }
+        
+    </script>
+    
+</body>
+</html>
